@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04adc0373e0b8f34d81daee21fb0289f, type: 3}
+  m_Name: Right Hand
+  m_EditorClassIdentifier: 
+  SavePath: /RightHand.Json
+  database: {fileID: 11400000, guid: 676a2711ecef0b049aeeff0a882d3ff0, type: 2}
+  Container:
+    Items:
+    - InventoryId: 0
+      Item:
+        Id: 0
+        Name: 
+        Level: 0
+        BeingCarried: 0
+        IsStackable: 0
+      StackSize: 0
+    - InventoryId: 0
+      Item:
+        Id: 0
+        Name: 
+        Level: 0
+        BeingCarried: 0
+        IsStackable: 0
+      StackSize: 0
+    - InventoryId: 0
+      Item:
+        Id: 0
+        Name: 
+        Level: 0
+        BeingCarried: 0
+        IsStackable: 0
+      StackSize: 0
+    - InventoryId: 0
+      Item:
+        Id: 0
+        Name: 
+        Level: 0
+        BeingCarried: 0
+        IsStackable: 0
+      StackSize: 0
+  Place: 1
