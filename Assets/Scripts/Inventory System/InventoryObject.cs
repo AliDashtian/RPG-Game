@@ -4,11 +4,9 @@ using UnityEngine;
 using System.Runtime.Serialization;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Inventory")]
-public class InventoryObject : ScriptableObject
+public class InventoryObject : InventoryBaseObject
 {
-    public string SavePath;
     public ItemDatabase database;
-    public Inventory Container;
 
     public void AddItem(Item item, int amount)
     {
@@ -30,33 +28,6 @@ public class InventoryObject : ScriptableObject
         }
 
         Container.Items.Add(new InventorySlot(inventoryItemIndex, item, amount));
-    }
-
-    [ContextMenu("Save")]
-    public void Save()
-    {
-        IFormatter formatter = new BinaryFormatter();
-        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, SavePath), FileMode.Create, FileAccess.Write);
-        formatter.Serialize(stream, Container);
-        stream.Close();
-    }
-
-    [ContextMenu("Load")]
-    public void Load()
-    {
-        if (File.Exists(string.Concat(Application.persistentDataPath, SavePath)))
-        {
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(string.Concat(Application.persistentDataPath, SavePath), FileMode.Open, FileAccess.Read);
-            Container = (Inventory)formatter.Deserialize(stream);
-            stream.Close();
-        }
-    }
-
-    [ContextMenu("Clear")]
-    public void Clear()
-    {
-        Container = new Inventory();
     }
 
     private void OnValidate()

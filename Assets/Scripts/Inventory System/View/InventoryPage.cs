@@ -11,7 +11,7 @@ public class InventoryPage : MonoBehaviour
 
     private void OnEnable()
     {
-        FindAllPageRowTypes();
+        FindRowTypesWithPageBaseTypes();
         CreateAndInitializeRows();
     }
 
@@ -34,18 +34,20 @@ public class InventoryPage : MonoBehaviour
         }
     }
 
-    void FindAllPageRowTypes()
+    void FindRowTypesWithPageBaseTypes()
     {
         for (int i = 0; i < PageTypeObject.Count; i++)
         {
             var objectType = PageTypeObject[i].GetType().BaseType;
 
-            FindRelativeTypeAndAddToList(objectType);
+            RowsTypes.AddRange(ListRelativeRowTypes(objectType));
         }
     }
 
-    void FindRelativeTypeAndAddToList(Type objectType)
+    List<ItemObject> ListRelativeRowTypes(Type objectType)
     {
+        List<ItemObject> relativeRowTypes = new List<ItemObject>();
+
         for (int i = 0; i < InventoryObject.Container.Items.Count; i++)
         {
             bool isItemTypeAlreadyAdded = false;
@@ -56,18 +58,20 @@ public class InventoryPage : MonoBehaviour
 
             if (objectType == InventoryObjectBaseType)
             {
-                for (int j = 0; j < RowsTypes.Count; j++)
+                for (int j = 0; j < relativeRowTypes.Count; j++)
                 {
-                    if (InventoryObjectType == RowsTypes[j].GetType())
+                    if (InventoryObjectType == relativeRowTypes[j].GetType())
                     {
                         isItemTypeAlreadyAdded = true;
                     }
                 }
 
                 if (!isItemTypeAlreadyAdded)
-                    RowsTypes.Add(InventoryObject.database.GetItem(ItemObjectId));
+                    relativeRowTypes.Add(InventoryObject.database.GetItem(ItemObjectId));
             }
         }
+
+        return relativeRowTypes;
     }
 
     void CreateAndInitializeRows()

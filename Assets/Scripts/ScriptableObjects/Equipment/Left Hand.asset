@@ -13,39 +13,37 @@ MonoBehaviour:
   m_Name: Left Hand
   m_EditorClassIdentifier: 
   SavePath: /LeftHand.Json
-  database: {fileID: 11400000, guid: 676a2711ecef0b049aeeff0a882d3ff0, type: 2}
   Container:
     Items:
     - InventoryId: 0
+      StackSize: 0
+      BeingCarried: 0
       Item:
         Id: 0
         Name: 
         Level: 0
-        BeingCarried: 0
         IsStackable: 0
-      StackSize: 0
     - InventoryId: 0
+      StackSize: 0
+      BeingCarried: 0
       Item:
         Id: 0
         Name: 
         Level: 0
-        BeingCarried: 0
         IsStackable: 0
-      StackSize: 0
     - InventoryId: 0
+      StackSize: 0
+      BeingCarried: 0
       Item:
         Id: 0
         Name: 
         Level: 0
-        BeingCarried: 0
         IsStackable: 0
-      StackSize: 0
     - InventoryId: 0
+      StackSize: 0
+      BeingCarried: 0
       Item:
         Id: 0
         Name: 
         Level: 0
-        BeingCarried: 0
         IsStackable: 0
-      StackSize: 0
-  Place: 2

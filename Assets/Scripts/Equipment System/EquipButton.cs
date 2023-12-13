@@ -6,38 +6,52 @@ public class EquipButton : MonoBehaviour
     public EquipinigMiddleManObject EquipinigMiddleMan;
 
     private InventorySlot MyItem;
+    private ItemView MyItemView;
 
     private void OnEnable()
     {     
         GetComponent<Button>().onClick.AddListener(EquipOrDequip);
+        MyItemView = GetComponent<ItemView>();
     }
 
     void EquipOrDequip()
     {
         MyItem = GetComponent<ItemView>().InventorySlotView;
 
-        if (MyItem.BeingCarried)
-            DequipButton();
+        if (EquipinigMiddleMan.CurrentItem.IsInitialized())
+        {
+            if (MyItem.Item.Id == EquipinigMiddleMan.CurrentItem.Item.Id)
+                DequipButton();
+            else if (!MyItem.BeingCarried)
+                Swap();
+        }
         else
+        {
             EquipButtonFunction();
+        }
     }
 
     void EquipButtonFunction()
     {
-        //MyItem.BeingCarried = true;
-        UpdateItemView();
         EquipinigMiddleMan.Equip(MyItem);
-        UpdateItemView();
+        UpdateItemView(MyItemView);
     }
 
     void DequipButton()
     {
         EquipinigMiddleMan.Dequip(MyItem);
-        UpdateItemView();
+        UpdateItemView(MyItemView);
     }
 
-    private void UpdateItemView()
+    void Swap()
     {
-        GetComponent<ItemView>().InitializeItemView(MyItem);
+        EquipinigMiddleMan.Swap(MyItem);
+        UpdateItemView(MyItemView);
+        EquipinigMiddleMan.PlayerInventory.InvokeOnInventoryChanged();
+    }
+
+    private void UpdateItemView(ItemView itemView)
+    {
+        itemView.InitializeItemView(MyItem);
     }
 }

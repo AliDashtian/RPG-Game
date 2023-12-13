@@ -4,51 +4,57 @@ using UnityEngine;
 public class EquipinigMiddleManObject : ScriptableObject
 {
     public InventoryObject PlayerInventory;
+    public InventorySlot CurrentItem;
 
     [SerializeField]
     private int EquipmentPlaceID;
     [SerializeField]
-    private EquipmentObject EquipmentObjectPlace;
+    private EquipmentObject EquipmentObject;
 
-    public void FillInfo(int id, EquipmentObject equipmentObject)
+    public void FillInfo(int id, EquipmentObject equipmentObject, InventorySlot currentItem)
     {
         EquipmentPlaceID = id;
-        EquipmentObjectPlace = equipmentObject;
+        EquipmentObject = equipmentObject;
+        CurrentItem = currentItem;
     }
 
     public void Equip(InventorySlot item)
     {
-        if (EquipmentObjectPlace.Container.HasItem(EquipmentPlaceID))
+        if (EquipmentObject.Container.HasItem(EquipmentPlaceID))
         {
-            Debug.Log("Swaping");
+            Debug.Log("Swap from equip function");
+
             Swap(item);
             return;
         }
 
         Debug.Log("Equiping");
 
-        EquipmentObjectPlace.Equip(EquipmentPlaceID, item);
+        EquipmentObject.Equip(EquipmentPlaceID, item);
     }
 
     public void Dequip(InventorySlot item)
     {
-        if (!EquipmentObjectPlace.Container.HasItem(EquipmentPlaceID))
+        if (!EquipmentObject.Container.HasItem(EquipmentPlaceID))
         {
+            Debug.Log("No Item to Dequip");
             return;
         }
 
         Debug.Log("Dequiping");
 
-        EquipmentObjectPlace.Dequip(EquipmentPlaceID);
+        EquipmentObject.Dequip(EquipmentPlaceID);
         DeqiupFromInventory(item);
     }
 
-    void Swap(InventorySlot item)
+    public void Swap(InventorySlot item)
     {
-        //EquipmentObjectPlace.Dequip(EquipmentPlaceID);
-        Dequip(EquipmentObjectPlace.Container.Items[EquipmentPlaceID]);
+        Debug.Log("Swapingggg");
 
-        EquipmentObjectPlace.Equip(EquipmentPlaceID, item);
+        //EquipmentObjectPlace.Dequip(EquipmentPlaceID);
+        Dequip(CurrentItem);
+
+        EquipmentObject.Equip(EquipmentPlaceID, item);
     }
 
     void DeqiupFromInventory(InventorySlot item)

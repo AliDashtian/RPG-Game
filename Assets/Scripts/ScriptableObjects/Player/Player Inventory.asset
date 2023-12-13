@@ -13,6 +13,30 @@ MonoBehaviour:
   m_Name: Player Inventory
   m_EditorClassIdentifier: 
   SavePath: /PlayerInventory.Json
-  database: {fileID: 11400000, guid: 676a2711ecef0b049aeeff0a882d3ff0, type: 2}
   Container:
-    Items: []
+    Items:
+    - InventoryId: 0
+      StackSize: 1
+      BeingCarried: 1
+      Item:
+        Id: 2
+        Name: Katana
+        Level: 0
+        IsStackable: 0
+    - InventoryId: 1
+      StackSize: 1
+      BeingCarried: 1
+      Item:
+        Id: 14
+        Name: Shield
+        Level: 1
+        IsStackable: 0
+    - InventoryId: 2
+      StackSize: 1
+      BeingCarried: 0
+      Item:
+        Id: 8
+        Name: Herb
+        Level: 0
+        IsStackable: 1
+  database: {fileID: 11400000, guid: 676a2711ecef0b049aeeff0a882d3ff0, type: 2}

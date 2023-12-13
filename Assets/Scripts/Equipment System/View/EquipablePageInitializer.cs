@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowEquipablesButton : MonoBehaviour
+public class EquipablePageInitializer : MonoBehaviour
 {
     public EquipinigMiddleManObject EquipingMiddleMan;
     public InventoryPage EquipablePage;
@@ -28,13 +28,13 @@ public class ShowEquipablesButton : MonoBehaviour
             EquipablePage.PageTypeObject.Add(PageTypeObject[i]);
         }
 
-        //EquipablePage.gameObject.SetActive(true);
-        Instantiate(EquipablePage, transform.parent.parent.parent.parent);
+        EquipablePage.gameObject.SetActive(true);
+        //Instantiate(EquipablePage, transform.parent.parent.parent.parent);
     }
 
     void AddEquipingMiddleManInfo()
     {
         //EquipmentObjectInfo objectInfo = new EquipmentObjectInfo(slot.ID, slot.SlotPlace);
-        EquipingMiddleMan.FillInfo(slot.ID, slot.SlotPlace);
+        EquipingMiddleMan.FillInfo(slot.ID, slot.SlotPlace, slot.Item);
     }
 }

@@ -1,15 +1,10 @@
-using System.ComponentModel;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using UnityEngine;
-using System;
 using System.Collections.Generic;
 
 public class SaveLoadController : MonoBehaviour
 {
     public StatsObject PlayerStats;
-    public List<InventoryObject> Inventories;
+    public List<InventoryBaseObject> Inventories;
 
     private void Start()
     {
@@ -22,6 +17,21 @@ public class SaveLoadController : MonoBehaviour
         PlayerStats.Save();
         SaveInventory();
     }
+
+    //void skj()
+    //{
+    //    Attribute[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes().ToArray();
+
+    //    foreach (Attribute attr in attributes)
+    //    {
+    //        switch (attr)
+    //        {
+    //            case SaveLoadAttribute sla:
+    //                Debug.Log(sla.ToString());
+    //                break;
+    //        }
+    //    }
+    //}
 
     void SaveInventory()
     {

@@ -7,9 +7,8 @@ public class InGameEquipmetRow : EquipmentRow
     public KeyCode NextItemInput;
 
     private int CurrentItemIndex = 0;
-    private List<EquipmentSlot> Slots = new List<EquipmentSlot>();
 
-    public override void CreateOrUpdateRowItems()
+    public override void InitializeRowItems()
     {
         ClearSlot();
 

@@ -1,12 +1,10 @@
 using System;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/EquipmentInventory")]
-public class EquipmentObject : InventoryObject
+public class EquipmentObject : InventoryBaseObject
 {
-    public EquipablePlaces Place;
-
-    public event Action EquipmentChanged;
 
     public void Equip(int index, InventorySlot item)
     {
@@ -14,7 +12,7 @@ public class EquipmentObject : InventoryObject
         Container.Items[index].ChangeBeingCarried(true);
         Container.Items[index].InventoryId = item.InventoryId;
 
-        InvokeEquipmentChanged();
+        InvokeOnInventoryChanged();
     }
 
     public void Dequip(int index)
@@ -24,11 +22,15 @@ public class EquipmentObject : InventoryObject
         Container.Items[index].ChangeBeingCarried(false);
         Container.Items[index] = null;
 
-        InvokeEquipmentChanged();
+        InvokeOnInventoryChanged();
     }
 
-    public void InvokeEquipmentChanged()
+    void DequipIfNotCarried()
     {
-        EquipmentChanged.Invoke();
+        for (int i = 0; i < Container.Items.Count; i++)
+        {
+            if (!Container.Items[i].BeingCarried)
+                Dequip(i);
+        }
     }
 }
