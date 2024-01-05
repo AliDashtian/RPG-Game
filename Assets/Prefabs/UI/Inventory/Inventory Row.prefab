@@ -113,8 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ee5b36b4106fd4b811cd213c126f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RowItemType: {fileID: 11400000, guid: deff00279a438c5409c8add8c17325dc, type: 2}
-  InitializeRowWithInspectorValue: 0
-  InventoryObject: {fileID: 11400000, guid: 3665237e37b73af40b08fa3849ab09e0, type: 2}
+  TargetInventory: {fileID: 11400000, guid: 3665237e37b73af40b08fa3849ab09e0, type: 2}
   ItemViewPrefab: {fileID: 4323101999848026328, guid: 38772912ed975ee47b801bed55712518, type: 3}
-  RowItemsObjects: []
+  _rowItemType: {fileID: 0}
+  _rowItemSlots: []

@@ -132,16 +132,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5840296205500135235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15839f27e969f3d4ab9a4c5ae5a7044e, type: 3}
+  m_Script: {fileID: 11500000, guid: 775d32e2e2841034593d0008b7a5cd79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
   SlotPlace: {fileID: 0}
   ItemViewPrefab: {fileID: 6974699572286458201}
   Item:
-    ItemObject: {fileID: 0}
+    InventoryId: 0
     StackSize: 0
     BeingCarried: 0
+    Item:
+      Id: 0
+      Name: 
+      Level: 0
+      IsStackable: 0
 --- !u!114 &3306390258808862640
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class EquipButton : MonoBehaviour
 
     void EquipOrDequip()
     {
-        MyItem = GetComponent<ItemView>().InventorySlotView;
+        MyItem = GetComponent<ItemView>().InventorySlot;
 
         if (EquipinigMiddleMan.CurrentItem.IsInitialized())
         {

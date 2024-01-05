@@ -1,44 +1,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentRow : MonoBehaviour
+public class EquipmentRow : RowBehaviour
 {
-    public EquipmentObject ThisRow;
-    public EquipmentSlot EquipmentSlotPrefab;
+    public EquipmentView EquipmentSlotPrefab;
 
-    internal List<EquipmentSlot> Slots = new List<EquipmentSlot>();
+    internal List<EquipmentView> Slots = new List<EquipmentView>();
 
     private void Start()
     {
-        FindRowItems();
+        AddRowItems();
         InitializeRowItems();
     }
 
-    private void OnEnable()
+    public override void ReInitializeRow()
     {
-        ThisRow.OnInventoryChanged += InitializeRowItems;
+        base.ReInitializeRow();
     }
 
-    private void OnDisable()
-    {
-        ThisRow.OnInventoryChanged -= InitializeRowItems;
-    }
-
-    void FindRowItems()
+    public override void AddRowItems()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            Slots.Add(transform.GetChild(i).GetComponent<EquipmentSlot>());
+            Slots.Add(transform.GetChild(i).GetComponent<EquipmentView>());
         }
     }
 
-    public virtual void InitializeRowItems()
+    public override void InitializeRowItems()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            //EquipmentObjectInfo objectInfo = new EquipmentObjectInfo(i, ThisRow);
-
-            Slots[i].InitializeSlot(i, ThisRow);
+            Slots[i].InitializeSlot(i, TargetInventory);
         }
     }
 }

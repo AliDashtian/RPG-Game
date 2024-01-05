@@ -16,11 +16,11 @@ public class ItemView : MonoBehaviour
     public ItemViewInfo ViewInfo;
 
     [HideInInspector]
-    public InventorySlot InventorySlotView;
+    public InventorySlot InventorySlot;
 
     public void InitializeItemView(InventorySlot inventorySlot)
     {
-        InventorySlotView = inventorySlot;
+        InventorySlot = inventorySlot;
         ViewInfo = ItemViewObject.GetItemInfo(inventorySlot);
 
         iconImage.enabled = true;

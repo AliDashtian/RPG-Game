@@ -19,13 +19,13 @@ MonoBehaviour:
       StackSize: 1
       BeingCarried: 1
       Item:
-        Id: 2
-        Name: Katana
-        Level: 0
+        Id: 4
+        Name: Normal Sword
+        Level: 1
         IsStackable: 0
     - InventoryId: 1
       StackSize: 1
-      BeingCarried: 1
+      BeingCarried: 0
       Item:
         Id: 14
         Name: Shield
@@ -35,8 +35,8 @@ MonoBehaviour:
       StackSize: 1
       BeingCarried: 0
       Item:
-        Id: 8
-        Name: Herb
+        Id: 7
+        Name: Basic Helmet
         Level: 0
-        IsStackable: 1
+        IsStackable: 0
   database: {fileID: 11400000, guid: 676a2711ecef0b049aeeff0a882d3ff0, type: 2}

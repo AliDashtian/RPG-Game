@@ -12,9 +12,9 @@ public class InGameEquipmetRow : EquipmentRow
     {
         ClearSlot();
 
-        for (int i = 0; i < ThisRow.Container.Items.Count; i++) 
+        for (int i = 0; i < TargetInventory.Container.Items.Count; i++) 
         {
-            if (ThisRow.Container.HasItem(i))
+            if (TargetInventory.Container.HasItem(i))
                 CreateAndInitializeSlots(i);
         }
 
@@ -23,11 +23,11 @@ public class InGameEquipmetRow : EquipmentRow
 
     void CreateAndInitializeSlots(int id)
     {
-        EquipmentSlot slot = Instantiate(EquipmentSlotPrefab, transform);
+        EquipmentView slot = Instantiate(EquipmentSlotPrefab, transform);
 
         //EquipmentObjectInfo objectInfo = new EquipmentObjectInfo(id, ThisRow);
 
-        slot.InitializeSlot(id, ThisRow);
+        slot.InitializeSlot(id, TargetInventory);
         Slots.Add(slot);
     }
 

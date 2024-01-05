@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentSlot : MonoBehaviour
-{
+public class EquipmentView : MonoBehaviour
+{ 
     public int ID;
-    public EquipmentObject SlotPlace;
+    public InventoryBaseObject SlotPlace;
     public ItemView ItemViewPrefab;
-
     public InventorySlot Item;
 
-    public void InitializeSlot(int id, EquipmentObject equipmentObject)
+    public void InitializeSlot(int id, InventoryBaseObject equipmentObject)
     {
         ID = id;
         SlotPlace = equipmentObject;
@@ -26,6 +23,5 @@ public class EquipmentSlot : MonoBehaviour
         {
             ItemViewPrefab.ClearItemView();
         }
-
     }
 }

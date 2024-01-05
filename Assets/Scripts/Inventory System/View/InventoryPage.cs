@@ -79,7 +79,7 @@ public class InventoryPage : MonoBehaviour
         for (int i = 0; i < RowsTypes.Count; i++)
         {
             InventoryRow rowPrefab = Instantiate(RowPrefab, transform);
-            rowPrefab.InitializeRow(RowsTypes[i]);
+            rowPrefab.CustomConstructor(RowsTypes[i]);
         }
     }
 }

@@ -11,10 +11,10 @@ public class EquipinigMiddleManObject : ScriptableObject
     [SerializeField]
     private EquipmentObject EquipmentObject;
 
-    public void FillInfo(int id, EquipmentObject equipmentObject, InventorySlot currentItem)
+    public void FillInfo(int id, InventoryBaseObject equipmentObject, InventorySlot currentItem)
     {
         EquipmentPlaceID = id;
-        EquipmentObject = equipmentObject;
+        EquipmentObject = (EquipmentObject) equipmentObject;
         CurrentItem = currentItem;
     }
 

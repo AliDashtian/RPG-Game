@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInitialSetup : MonoBehaviour
@@ -38,6 +36,4 @@ public class PlayerInitialSetup : MonoBehaviour
     {
         Player.PlayerStats.Stats = _character.CharacterStats.Stats;
     }
-
-    //TODO - copy character stat & inventory to player stat & inventory
 }

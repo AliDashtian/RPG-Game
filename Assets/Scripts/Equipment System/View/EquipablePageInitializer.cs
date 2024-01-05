@@ -9,13 +9,13 @@ public class EquipablePageInitializer : MonoBehaviour
     public InventoryPage EquipablePage;
     public List<ItemObject> PageTypeObject = new List<ItemObject>();
 
-    private EquipmentSlot slot;
+    private EquipmentView slot;
 
     private void Start()
     {
         GetComponent<Button>().onClick.AddListener(FillRelativeEquipablePageAndShow);
         GetComponent<Button>().onClick.AddListener(AddEquipingMiddleManInfo);
-        slot = GetComponent<EquipmentSlot>();
+        slot = GetComponent<EquipmentView>();
     }
 
     void FillRelativeEquipablePageAndShow()

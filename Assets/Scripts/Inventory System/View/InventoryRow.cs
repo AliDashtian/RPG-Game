@@ -1,48 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class InventoryRow : MonoBehaviour
+public class InventoryRow : RowBehaviour
 {
-    public ItemObject RowItemType;
-
-    public bool InitializeRowWithInspectorValue;
-    public InventoryObject InventoryObject;
     public ItemView ItemViewPrefab;
 
-    public List<InventorySlot> RowItemSlots;
+    //[SerializeField]
+    public ItemObject _rowItemType;
+    [SerializeField]
+    private List<InventorySlot> _rowItemSlots;
 
-    private void Start()
+    public void CustomConstructor(ItemObject rowItemType)
     {
-        if (InitializeRowWithInspectorValue)
-            InitializeRow(RowItemType);
+        _rowItemType = rowItemType;
+
+        AddRowItems();
+        InitializeRowItems();
     }
 
-    private void OnEnable()
+    public override void AddRowItems()
     {
-        InventoryObject.OnInventoryChanged += ResetAndInitialize;
+        _rowItemSlots.AddRange(ListRowItems());
     }
 
-    private void OnDisable()
+    public override void InitializeRowItems()
     {
-        InventoryObject.OnInventoryChanged -= ResetAndInitialize;
+        for (int i = 0; i < _rowItemSlots.Count; i++)
+        {
+            ItemView item = Instantiate(ItemViewPrefab, transform);
+            item.InitializeItemView(_rowItemSlots[i]);
+        }
     }
 
-    public void InitializeRow(ItemObject rowItemType)
-    {
-        RowItemType = rowItemType;
-
-        RowItemSlots.AddRange(ListRelativeItems());
-        CreateAndInitializeItems();
-    }
-
-    public void ResetAndInitialize()
+    public override void ReInitializeRow()
     {
         ResetRow();
 
-        RowItemSlots.AddRange(ListRelativeItems());
-        CreateAndInitializeItems();
+        base.ReInitializeRow();
     }
 
     void ResetRow()
@@ -52,33 +47,25 @@ public class InventoryRow : MonoBehaviour
             if (transform.GetChild(i).GetComponent<ItemView>())
                 Destroy(transform.GetChild(i).gameObject);
         }
-        RowItemSlots.Clear();
+        _rowItemSlots.Clear();
     }
 
-    private List<InventorySlot> ListRelativeItems()
+    private List<InventorySlot> ListRowItems()
     {
         List<InventorySlot> relativeItems = new List<InventorySlot>();
 
-        for (int i = 0; i < InventoryObject.Container.Items.Count; i++)
+        for (int i = 0; i < TargetInventory.Container.Items.Count; i++)
         {
-            int ItemObjectId = InventoryObject.Container.Items[i].Item.Id;
-            var InventoryObjectType = InventoryObject.database.GetItem(ItemObjectId).GetType();
+            int ItemObjectId = TargetInventory.Container.Items[i].Item.Id;
+            InventoryObject inventoryObject = (InventoryObject)TargetInventory;
+            var InventoryObjectType = inventoryObject.database.GetItem(ItemObjectId).GetType();
 
-            if (RowItemType.GetType() == InventoryObjectType)
+            if (_rowItemType.GetType() == InventoryObjectType)
             {
-                relativeItems.Add(InventoryObject.Container.Items[i]);
+                relativeItems.Add(TargetInventory.Container.Items[i]);
             }
         }
 
         return relativeItems;
-    }
-
-    private void CreateAndInitializeItems()
-    {
-        for (int i = 0; i < RowItemSlots.Count; i++)
-        {
-            ItemView item = Instantiate(ItemViewPrefab, transform);
-            item.InitializeItemView(RowItemSlots[i]);
-        }
     }
 }
