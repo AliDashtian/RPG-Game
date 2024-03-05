@@ -16,20 +16,20 @@ MonoBehaviour:
   Container:
     Items:
     - InventoryId: 0
-      StackSize: 1
-      BeingCarried: 1
+      StackSize: 0
+      BeingCarried: 0
       Item:
-        Id: 4
-        Name: Normal Sword
-        Level: 1
+        Id: 0
+        Name: 
+        Level: 0
         IsStackable: 0
     - InventoryId: 0
-      StackSize: 1
-      BeingCarried: 1
+      StackSize: 0
+      BeingCarried: 0
       Item:
-        Id: 4
-        Name: Normal Sword
-        Level: 1
+        Id: 0
+        Name: 
+        Level: 0
         IsStackable: 0
     - InventoryId: 0
       StackSize: 0
@@ -47,3 +47,4 @@ MonoBehaviour:
         Name: 
         Level: 0
         IsStackable: 0
+  EquipmentSize: 4

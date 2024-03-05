@@ -14,7 +14,7 @@ public abstract class InventoryBaseObject : ScriptableObject
     }
 
     [ContextMenu("Clear")]
-    public void Clear()
+    public virtual void Clear()
     {
         Container = new Inventory();
     }

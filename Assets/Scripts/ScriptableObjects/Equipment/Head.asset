@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Head
   m_EditorClassIdentifier: 
   SavePath: 
-  database: {fileID: 11400000, guid: 676a2711ecef0b049aeeff0a882d3ff0, type: 2}
   Container:
     Items: []
-  Place: 0
+  EquipmentSize: 1

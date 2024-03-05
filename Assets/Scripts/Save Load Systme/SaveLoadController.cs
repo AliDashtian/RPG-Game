@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class SaveLoadController : MonoBehaviour
 {
-    public StatsObject PlayerStats;
+    public CharacterStatsObject PlayerStats;
     public List<InventoryBaseObject> Inventories;
 
     private void Start()

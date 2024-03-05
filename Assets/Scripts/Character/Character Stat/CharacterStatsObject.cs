@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Character/Stats")]
-public class StatsObject : ScriptableObject
+public class CharacterStatsObject : ScriptableObject
 {
     public string SavePath;
     public CharacterStats Stats;
@@ -17,19 +17,19 @@ public class StatsObject : ScriptableObject
         switch (statType)
         {
             case CharacterStatTypes.Vigor:
-                Stats.Vigor = amount;
+                Stats.Vigor += amount;
                 break;
             case CharacterStatTypes.Strength:
-                Stats.Strength = amount;
+                Stats.Strength += amount;
                 break;
             case CharacterStatTypes.Defense:
-                Stats.Defense = amount;
+                Stats.Defense += amount;
                 break;
             case CharacterStatTypes.Endurance:
-                Stats.Endurance = amount;
+                Stats.Endurance += amount;
                 break;
             case CharacterStatTypes.Faith:
-                Stats.Faith = amount;
+                Stats.Faith += amount;
                 break;
         }
     }

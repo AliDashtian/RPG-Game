@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
-using static UnityEditor.Progress;
+using System.Collections.Generic;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/EquipmentInventory")]
 public class EquipmentObject : InventoryBaseObject
 {
+    public int EquipmentSize = 4;
 
     public void Equip(int index, InventorySlot item)
     {
@@ -31,6 +32,20 @@ public class EquipmentObject : InventoryBaseObject
         {
             if (!Container.Items[i].BeingCarried)
                 Dequip(i);
+        }
+    }
+
+    [ContextMenu("ReInitialize Equipment")]
+    public override void Clear()
+    {
+        base.Clear();
+        Debug.Log("Clear equipments");
+
+        Container.Items = new List<InventorySlot>(4);
+
+        for (int i = 0;i < EquipmentSize;i++)
+        {
+            Container.Items.Add(null);
         }
     }
 }

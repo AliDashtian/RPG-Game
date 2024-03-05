@@ -6,6 +6,6 @@ public class Player : MonoBehaviour
 {
     public Character Character;
 
-    public StatsObject PlayerStats;
+    public CharacterStatsObject PlayerStats;
     public InventoryObject PlayerInventory;
 }

@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e69febebd87ef0468c493044aeb7bf4, type: 3}
+  m_Script: {fileID: 11500000, guid: fc84ee3b4a37a614497c099d9b5930b5, type: 3}
   m_Name: Player Stats
   m_EditorClassIdentifier: 
   SavePath: /PlayerStats.Json
   Stats:
-    Vigor: 0
-    Strength: 0
-    Defense: 0
-    Endurance: 0
-    Faith: 0
+    Vigor: 10
+    Strength: 11
+    Defense: 10
+    Endurance: 11
+    Faith: 8

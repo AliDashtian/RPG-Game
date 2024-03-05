@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Character/Character")]
 public class Character : ScriptableObject
 {
-    public StatsObject CharacterStats;
+    public CharacterStatsObject CharacterStats;
     public InventoryObject CharacterInventory;
 
 }
