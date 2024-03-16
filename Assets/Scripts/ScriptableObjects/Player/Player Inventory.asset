@@ -25,7 +25,7 @@ MonoBehaviour:
         IsStackable: 0
     - InventoryId: 1
       StackSize: 1
-      BeingCarried: 0
+      BeingCarried: 1
       Item:
         Id: 14
         Name: Shield
@@ -38,5 +38,13 @@ MonoBehaviour:
         Id: 7
         Name: Basic Helmet
         Level: 0
+        IsStackable: 0
+    - InventoryId: 3
+      StackSize: 1
+      BeingCarried: 0
+      Item:
+        Id: 1
+        Name: Legendary Sword
+        Level: 1
         IsStackable: 0
   database: {fileID: 11400000, guid: 676a2711ecef0b049aeeff0a882d3ff0, type: 2}

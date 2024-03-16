@@ -10,13 +10,13 @@ public class EquipButton : MonoBehaviour
 
     private void OnEnable()
     {     
-        GetComponent<Button>().onClick.AddListener(EquipOrDequip);
+        GetComponent<Button>().onClick.AddListener(EquipingDesicsion);
         MyItemView = GetComponent<ItemView>();
     }
 
     void EquipOrDequip()
     {
-        MyItem = GetComponent<ItemView>().InventorySlot;
+        MyItem = MyItemView.InventorySlot;
 
         if (EquipinigMiddleMan.CurrentItem.IsInitialized())
         {
@@ -31,8 +31,37 @@ public class EquipButton : MonoBehaviour
         }
     }
 
+    void EquipingDesicsion()
+    {
+        MyItem = MyItemView.InventorySlot;
+
+        if (EquipinigMiddleMan.CurrentItem.IsInitialized())  // is the selected slot full
+        {
+            if (MyItem.Item.Id == EquipinigMiddleMan.CurrentItem.Item.Id)  // if the selected equipment is the same as selected slot
+            {
+                DequipButton();
+            }
+            else if (!MyItem.BeingCarried)
+            {
+                Swap();
+            }
+        }
+        else  // if the selected slot is empty
+        {
+            if (!MyItem.BeingCarried)
+            {
+                EquipButtonFunction();
+            }
+        }
+    }
+
     void EquipButtonFunction()
     {
+        //if (MyItem.BeingCarried)
+        //{
+        //    DequipButton();
+        //}
+
         EquipinigMiddleMan.Equip(MyItem);
         UpdateItemView(MyItemView);
     }

@@ -24,12 +24,12 @@ MonoBehaviour:
         Level: 0
         IsStackable: 0
     - InventoryId: 0
-      StackSize: 0
-      BeingCarried: 0
+      StackSize: 1
+      BeingCarried: 1
       Item:
-        Id: 0
-        Name: 
-        Level: 0
+        Id: 4
+        Name: Normal Sword
+        Level: 1
         IsStackable: 0
     - InventoryId: 0
       StackSize: 0
@@ -39,12 +39,12 @@ MonoBehaviour:
         Name: 
         Level: 0
         IsStackable: 0
-    - InventoryId: 0
-      StackSize: 0
-      BeingCarried: 0
+    - InventoryId: 1
+      StackSize: 1
+      BeingCarried: 1
       Item:
-        Id: 0
-        Name: 
-        Level: 0
+        Id: 14
+        Name: Shield
+        Level: 1
         IsStackable: 0
   EquipmentSize: 4
