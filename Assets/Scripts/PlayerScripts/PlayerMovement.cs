@@ -8,8 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
-    private CharacterController controller;
-    private Vector3 playerVelocity;
+    [HideInInspector] public CharacterController controller;
+    [HideInInspector] public Vector3 playerVelocity;
+    public Vector3 controllerVelocity;
     private bool groundedPlayer;
 
     private void Start()
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         controller.Move(move * Time.deltaTime * playerSpeed);
-
+        controllerVelocity = controller.velocity;
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
